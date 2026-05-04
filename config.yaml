@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: ctf-exchange-indexer
+description: CTF Exchange Indexer
+contracts:
+  - name: CTFExchangeV2
+    events:
+      - event: "OrderFilled(bytes32 indexed orderHash, address indexed maker, address indexed taker, uint8 side, uint256 tokenId, uint256 makerAmountFilled, uint256 takerAmountFilled, uint256 fee, bytes32 builder, bytes32 metadata)"
+chains:
+  - id: 137 # Polygon
+    start_block: 84902320 # PolyUSD deployment
+    contracts:
+      # CTF Exchange V2 — 3 instances (standard, neg-risk, third)
+      - name: CTFExchangeV2
+        address:
+          - "0xe111180000d2663c0091e4f400237545b87b996b"
+          - "0xe2222d279d744050d28e00520010520000310f59"
+          - "0xe2222d002000ba0053cef3375333610f64600036"

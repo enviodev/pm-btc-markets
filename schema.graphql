@@ -1,0 +1,20 @@
+type OrderFill {
+  id: ID!
+  orderHash: String!
+  maker: String!
+  taker: String!
+  side: Int!                           # 0=BUY, 1=SELL
+  tokenId: BigInt!                     # conditional token ID
+  price: String!                       # price per share in USDC (6 decimals)
+  # market: Market                       # enriched from Gamma API (optional as in this example we don't need enriched market data as we already know what markets we're tracking)
+  makerAmountFilled: BigInt!
+  takerAmountFilled: BigInt!
+  fee: BigInt!
+  builder: String!                     # builder code (bytes32)
+  metadata: String!                    # metadata (bytes32)
+  exchange: String!                    # source exchange address
+  timestamp: Int!
+  blockNumber: Int!
+  transactionHash: String!
+  txFrom: String!                      # transaction sender
+}
