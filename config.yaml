@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: ctf-exchange-indexer
 description: CTF Exchange Indexer
+field_selection:
+  transaction_fields:
+    - hash
+    - from
 contracts:
   - name: CTFExchangeV2
     events:
