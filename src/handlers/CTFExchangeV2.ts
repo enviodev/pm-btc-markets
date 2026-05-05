@@ -31,6 +31,9 @@ indexer.onEvent(
       metadata,
     } = event.params;
 
+    const market = await context.Market.get(tokenId.toString());
+    if (!market) return;
+
     const price =
       Number(side) === SIDE_BUY
         ? formatRatio(makerAmountFilled, takerAmountFilled)
@@ -42,7 +45,7 @@ indexer.onEvent(
       maker,
       taker,
       side: Number(side),
-      tokenId,
+      market_id: market.id,
       price,
       makerAmountFilled,
       takerAmountFilled,

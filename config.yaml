@@ -11,7 +11,7 @@ contracts:
       - event: "OrderFilled(bytes32 indexed orderHash, address indexed maker, address indexed taker, uint8 side, uint256 tokenId, uint256 makerAmountFilled, uint256 takerAmountFilled, uint256 fee, bytes32 builder, bytes32 metadata)"
 chains:
   - id: 137 # Polygon
-    start_block: 84902320 # PolyUSD deployment
+    start_block: 86346000 # ~48h before head (head 86428643 on 2026-05-05)
     contracts:
       # CTF Exchange V2 — 3 instances (standard, neg-risk, third)
       - name: CTFExchangeV2

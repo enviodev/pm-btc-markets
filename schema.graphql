@@ -4,9 +4,8 @@ type OrderFill {
   maker: String!
   taker: String!
   side: Int!                           # 0=BUY, 1=SELL
-  tokenId: BigInt!                     # conditional token ID
+  market: Market!                      # active 5-min market the fill belongs to
   price: String!                       # price per share in USDC (6 decimals)
-  # market: Market                       # enriched from Gamma API (optional as in this example we don't need enriched market data as we already know what markets we're tracking)
   makerAmountFilled: BigInt!
   takerAmountFilled: BigInt!
   fee: BigInt!
@@ -17,4 +16,13 @@ type OrderFill {
   blockNumber: Int!
   transactionHash: String!
   txFrom: String!                      # transaction sender
+}
+
+type Market {
+  id: ID!                              # clobTokenId (decimal uint256 string)
+  conditionId: String!
+  slug: String!                        # gamma event slug, e.g. btc-updown-5m-1777824900
+  slotTimestamp: Int! @index           # slug's unix timestamp (5-min aligned)
+  endDate: Int! @index                 # market resolution unix seconds
+  outcome: String!                     # "Up" or "Down"
 }
