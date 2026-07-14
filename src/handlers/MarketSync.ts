@@ -1,4 +1,4 @@
-import { indexer } from "generated";
+import { indexer } from "envio";
 import { S, createEffect } from "envio";
 
 const FIVE_MIN_SECS = 300;

@@ -1,4 +1,4 @@
-import { indexer } from "generated";
+import { indexer } from "envio";
 
 const SIDE_BUY = 0;
 

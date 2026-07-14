@@ -34,3 +34,4 @@ cache
 generated
 .env
 .pnpm-store
+.envio/
