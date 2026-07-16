@@ -1,9 +1,11 @@
 ---
-name: indexing-blocks
+name: indexer-blocks
 description: >-
   Use when processing every block (or every Nth block) for time-series data,
   periodic snapshots, or block-level aggregations. indexer.onBlock API, where
   filter with block-number range and stride, and block handler context.
+metadata:
+  managed-by: envio
 ---
 
 # Block Handlers
@@ -17,7 +19,7 @@ Branch by `chain.id` with a `switch` so the type system flags any
 unconfigured chain via the `default: never` exhaustiveness check:
 
 ```ts
-import { indexer } from "generated";
+import { indexer } from "envio";
 
 indexer.onBlock(
   {
@@ -64,8 +66,6 @@ indexer.onBlock(
 - No events or contract address required
 - The handler context has the same entity API as event handlers
 - If `where` returns `false` for every configured chain, a warning is logged at registration time
-- For per-event startBlock (not stride), use `indexer.onEvent` with `where.block.number._gte` (see `indexing-filters`). Event filters accept `_gte` only; `_lte`/`_every` are reserved for `onBlock`.
+- For per-event startBlock (not stride), use `indexer.onEvent` with `where.block.number._gte` (see `indexer-filters`). Event filters accept `_gte` only; `_lte`/`_every` are reserved for `onBlock`.
 
-## Deep Documentation
-
-Full reference: https://docs.envio.dev/docs/HyperIndex-LLM/hyperindex-complete
+> If something is unclear, use the `envio-docs` skill to search and read the latest documentation.

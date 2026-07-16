@@ -1,9 +1,11 @@
 ---
-name: indexing-filters
+name: indexer-filters
 description: >-
   Use when filtering events by indexed parameters to reduce processing volume.
   The `where` option supports static filters, dynamic per-chain functions,
   contract address filtering, and conditional enable/disable.
+metadata:
+  managed-by: envio
 ---
 
 # Event Filters (`where`)
@@ -158,6 +160,4 @@ On Fuel, key the block range on `block.height` instead of `block.number`. SVM ha
 - `return false` → skip the chain entirely (no events processed for that chain)
 - `return true` → accept all events (no filtering, default topic0-only selection)
 
-## Deep Documentation
-
-Full reference: https://docs.envio.dev/docs/HyperIndex-LLM/hyperindex-complete
+> If something is unclear, use the `envio-docs` skill to search and read the latest documentation.
